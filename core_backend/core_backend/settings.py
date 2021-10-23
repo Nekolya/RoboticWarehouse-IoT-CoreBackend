@@ -36,6 +36,12 @@ LOCKDOWN_ADMIN = False
 
 AUTH_USER_MODEL = 'users.AuthUser'
 
+CELERY_BROKER_URL = environ.get('CELERY_BROKER_URL')
+CELERY_RESULT_BACKEND = environ.get('CELERY_RESULT_BACKEND')
+CELERY_TIMEZONE = environ.get('TIME_ZONE')
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
 # Application definition
 SIMPLE_JWT = {
     'TOKEN_USER_CLASS': 'users.models.AuthUser',
@@ -96,7 +102,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     'rest_framework',
-    'corsheaders',
+    # 'corsheaders',
     'rest_framework_simplejwt',
 
     # Local
@@ -107,17 +113,17 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # cors
+    # 'corsheaders.middleware.CorsMiddleware',  # cors
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = tuple(environ.get('CORS_ALLOWED_ORIGINS').split(","))
+# CORS_ALLOWED_ORIGINS = tuple(environ.get('CORS_ALLOWED_ORIGINS').split(","))
 CSRF_TRUSTED_ORIGINS = environ.get('CSRF_TRUSTED_ORIGINS').split(",")
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding',
-                      'content-type', 'accept', 'origin', 'authorization', 'cookie')
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_HEADERS = ('content-disposition', 'accept-encoding',
+#                       'content-type', 'accept', 'origin', 'authorization', 'cookie')
 
 ROOT_URLCONF = 'core_backend.urls'
 
@@ -192,7 +198,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = environ.get('STATIC_URL')
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -204,5 +210,6 @@ SPECTACULAR_SETTINGS = {
     'DESCRIPTION': 'Your project description',
     'VERSION': '1.0.0',
     'COMPONENT_SPLIT_REQUEST': True,
+    'SCHEMA_PATH_PREFIX': r'/api/',
     # OTHER SETTINGS
 }
