@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
+from django.db.models.deletion import CASCADE
+from robots.models import Robot
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -57,3 +59,29 @@ class AuthUser(AbstractBaseUser):
         return self.is_admin
 
     USERNAME_FIELD = 'username'
+
+
+class OrderStatus(models.Model):
+    name = models.CharField(max_length=50)
+
+
+class Order(models.Model):
+    """Model definition for Order."""
+
+    user = models.ForeignKey(AuthUser, related_name='orders', on_delete=CASCADE)
+    ordering_date = models.DateTimeField(auto_now_add=True)
+    receiving_date = models.DateTimeField(blank=True, null=True, default=None)
+    collection_start = models.DateTimeField(blank=True, null=True, default=None)
+    status = models.ForeignKey('OrderStatus', related_name='orders', on_delete=models.CASCADE)
+    robot = models.ForeignKey(Robot, related_name='orders', on_delete=models.CASCADE)
+    
+
+    class Meta:
+        """Meta definition for Order."""
+
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
+
+    def __str__(self):
+        """Unicode representation of Order."""
+        pass

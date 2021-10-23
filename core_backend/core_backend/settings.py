@@ -109,6 +109,7 @@ INSTALLED_APPS = [
     'products',
     'users',
     'zones',
+    'robots'
 ]
 
 MIDDLEWARE = [
