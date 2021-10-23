@@ -20,7 +20,6 @@ class AreaType(models.Model):
 class Area(models.Model):
     """Model definition for Area."""
     area_type = models.ForeignKey('AreaType', on_delete=CASCADE, related_name='areas')
-    # TODO: Define fields here
 
     class Meta:
         """Meta definition for Area."""
@@ -38,8 +37,8 @@ class Area(models.Model):
 
 class Location(models.Model):
     """Model definition for Location."""
-
-    # TODO: Define fields here
+    area = models.ForeignKey('Area', on_delete=CASCADE, related_name='lacations')
+    
 
     class Meta:
         """Meta definition for Location."""
