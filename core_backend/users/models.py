@@ -81,7 +81,3 @@ class Order(models.Model):
 
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
-
-    def __str__(self):
-        """Unicode representation of Order."""
-        pass

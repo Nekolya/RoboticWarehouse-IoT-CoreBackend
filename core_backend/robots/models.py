@@ -14,9 +14,6 @@ class RobotStatus(models.Model):
         verbose_name = 'RobotStatus'
         verbose_name_plural = 'RobotStatuss'
 
-    def __str__(self):
-        """Unicode representation of RobotStatus."""
-        pass
 
 # Create your models here.
 class Robot(models.Model):
@@ -35,7 +32,3 @@ class Robot(models.Model):
 
         verbose_name = 'Robot'
         verbose_name_plural = 'Robots'
-
-    def __str__(self):
-        """Unicode representation of Robot."""
-        pass
