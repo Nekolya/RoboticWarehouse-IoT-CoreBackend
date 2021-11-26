@@ -2,24 +2,24 @@ from django.db import models
 from django.db.models.deletion import CASCADE
 
 # Create your models here
-class AreaType(models.Model):
-    """Model definition for AreaType."""
+class LocationType(models.Model):
+    """Model definition for LocationType."""
 
     name = models.CharField(max_length=255)
 
     class Meta:
-        """Meta definition for AreaType."""
+        """Meta definition for LocationType."""
 
-        verbose_name = 'AreaType'
-        verbose_name_plural = 'AreaTypes'
+        verbose_name = 'LocationType'
+        verbose_name_plural = 'LocationTypes'
 
     def __str__(self):
-        """Unicode representation of AreaType."""
+        """Unicode representation of LocationType."""
         pass
 
 class Area(models.Model):
     """Model definition for Area."""
-    area_type = models.ForeignKey('AreaType', on_delete=CASCADE, related_name='areas')
+    
 
     class Meta:
         """Meta definition for Area."""
@@ -38,7 +38,8 @@ class Area(models.Model):
 class Location(models.Model):
     """Model definition for Location."""
     area = models.ForeignKey('Area', on_delete=CASCADE, related_name='lacations')
-    
+    location_type = models.ForeignKey('LocationType', on_delete=CASCADE, related_name='lacations')
+    name = models.CharField(max_length=255)
 
     class Meta:
         """Meta definition for Location."""
@@ -49,3 +50,9 @@ class Location(models.Model):
     def __str__(self):
         """Unicode representation of Location."""
         pass
+
+class AreaConnections(models.Model):
+    class Meta:
+        unique_together = (('area1', 'area2'),)
+    area1 = models.ForeignKey('Area', on_delete=CASCADE, related_name='lacations1')
+    area2 = models.ForeignKey('Area', on_delete=CASCADE, related_name='lacations2')
