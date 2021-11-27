@@ -49,5 +49,5 @@ class AreaConnections(models.Model):
         constraints = [
         models.UniqueConstraint(fields=['area1', 'area2'], name='id')
     ]
-    area1 = models.ForeignKey('Area', on_delete=CASCADE, related_name='area1')
-    area2 = models.ForeignKey('Area', on_delete=CASCADE, related_name='area2')
+    area1 = models.ForeignKey(Area, on_delete=CASCADE, related_name='area1')
+    area2 = models.ForeignKey(Area, on_delete=CASCADE, related_name='area2')

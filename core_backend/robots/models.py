@@ -1,3 +1,4 @@
+from os import name
 from django.db import models
 from django.db.models.fields import CharField
 from zones.models import Area
@@ -5,7 +6,7 @@ from products.models import Product
 
 class RobotStatus(models.Model):
     """Model definition for RobotStatus."""
-
+    name = models.CharField(max_length=20)
     # TODO: Define fields here
 
     class Meta:
@@ -25,10 +26,14 @@ class Robot(models.Model):
     target_product = models.ForeignKey(Product, related_name='robots_target', on_delete=models.CASCADE) 
     area = models.ForeignKey(Area, related_name='robots', on_delete=models.CASCADE)
     charge = models.PositiveSmallIntegerField()
-    product = models.ManyToManyField(Product, related_name='robots')
 
     class Meta:
         """Meta definition for Robot."""
 
         verbose_name = 'Robot'
         verbose_name_plural = 'Robots'
+
+class RobotProduct(models.Model):
+    product = models.ForeignKey(Product, related_name='robots', on_delete=models.CASCADE)
+    robot = models.ForeignKey(Robot, related_name='products', on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField()

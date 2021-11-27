@@ -14,6 +14,8 @@ urlpatterns = [
     path('', include(router.urls)),
     path('auth/login/', views.MyTokenObtainPairView.as_view(),
          name='token_obtain_pair'),
+    path('orders/set-robot/', views.SetRobot.as_view(),
+         name='set_robot'),
     path('auth/refresh/', views.MyTokenRefreshView.as_view(),
          name='token_refresh'),
     path('auth/logout/', views.LogoutView.as_view(),

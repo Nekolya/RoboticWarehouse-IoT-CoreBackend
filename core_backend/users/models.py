@@ -2,8 +2,11 @@ from django.db import models
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.db.models.deletion import CASCADE
 from robots.models import Robot
+from products.models import Product
 
 # Create your models here.
+
+
 class UserManager(BaseUserManager):
     def create_user(self, username, name, surename, password=None):
         """
@@ -18,7 +21,7 @@ class UserManager(BaseUserManager):
             name=name,
             surename=surename
         )
-        
+
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -48,7 +51,7 @@ class AuthUser(AbstractBaseUser):
     surename = models.CharField(max_length=255)
 
     objects = UserManager()
-    
+
     class Meta:
         db_table = 'auth_user'
 
@@ -68,16 +71,27 @@ class OrderStatus(models.Model):
 class Order(models.Model):
     """Model definition for Order."""
 
-    user = models.ForeignKey(AuthUser, related_name='orders', on_delete=CASCADE)
+    user = models.ForeignKey(
+        AuthUser, related_name='orders', on_delete=CASCADE, null=True, default=None)
     ordering_date = models.DateTimeField(auto_now_add=True)
     receiving_date = models.DateTimeField(blank=True, null=True, default=None)
-    collection_start = models.DateTimeField(blank=True, null=True, default=None)
-    status = models.ForeignKey('OrderStatus', related_name='orders', on_delete=models.CASCADE)
-    robot = models.ForeignKey(Robot, related_name='orders', on_delete=models.CASCADE)
-    
+    collection_start = models.DateTimeField(
+        blank=True, null=True, default=None)
+    status = models.ForeignKey(
+        'OrderStatus', related_name='orders', on_delete=models.CASCADE)
+    robot = models.ForeignKey(
+        Robot, related_name='orders', on_delete=models.CASCADE, null=True, default=None)
 
     class Meta:
         """Meta definition for Order."""
 
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
+
+
+class OrderProduct(models.Model):
+    product = models.ForeignKey(
+        Product, related_name='orders', on_delete=models.CASCADE)
+    order = models.ForeignKey(
+        Order, related_name='products', on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField()

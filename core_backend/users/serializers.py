@@ -26,7 +26,7 @@ class AuthUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AuthUser
-        fields = ['id', 'username', 'password']  # 'questionnaires'
+        fields = ['id', 'username', 'password', 'name', 'surename']  # 'questionnaires'
         
 class MyTokenRefreshSerializer(serializers.Serializer):
     def validate(self, attrs):
@@ -41,3 +41,21 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
+        
+    def to_internal_value(self, data):
+        # check for "finish_date": "" and convert to None
+        # This must be done before .validate()
+        try:
+            if data['ordering_date'] == '':
+                data['ordering_date'] = None
+            if 'receiving_date' in data and data['receiving_date'] == '':
+                data['finish_time'] = None
+            if not data['language']:
+                data['language'] = None
+        except Exception as e:
+            raise ValidationError('Bad data')
+        return super(QuestionnairePostSerializer, self).to_internal_value(data)
+
+class SetRobotSerializer(serializers.Serializer):
+    robot_id = serializers.UUIDField(format='int', required=False)
+    order_id = serializers.UUIDField(format='int', required=True)

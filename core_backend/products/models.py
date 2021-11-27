@@ -2,6 +2,8 @@ from django.db import models
 from zones.models import Area, Location
 
 # Create your models here.
+
+
 class Category(models.Model):
     name = models.CharField(max_length=20, unique=True)
     weight = models.PositiveSmallIntegerField()
@@ -18,4 +20,5 @@ class Product(models.Model):
                                  on_delete=models.CASCADE)
 
     amount = models.PositiveIntegerField()
-    location = models.ForeignKey(Location, related_name='products', on_delete=models.CASCADE)
+    location = models.ForeignKey(
+        Location, related_name='products', on_delete=models.CASCADE)
