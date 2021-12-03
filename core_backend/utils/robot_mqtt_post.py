@@ -4,9 +4,9 @@ import json
 from os import environ
 
 
-def publish():
+def publish(topic, message):
     client = mqtt.Client()
-    def on_publish(client,userdata,result):             #create function for callback
+    def on_publish(client,userdata,result):
         print("data published \n")
         pass
     client.on_publish = on_publish

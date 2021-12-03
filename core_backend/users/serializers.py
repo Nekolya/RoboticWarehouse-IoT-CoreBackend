@@ -73,5 +73,5 @@ class OrderGetSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class SetRobotSerializer(serializers.Serializer):
-    robot_id = serializers.UUIDField(format='int', required=False)
-    order_id = serializers.UUIDField(format='int', required=True)
+    robot_id = serializers.IntegerField(required=False)
+    order_id = serializers.IntegerField(required=True)

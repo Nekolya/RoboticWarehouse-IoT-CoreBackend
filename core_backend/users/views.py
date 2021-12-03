@@ -7,7 +7,8 @@ from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema
-
+from utils.find_way import bfs
+from zones.models import Area
 
 from .serializers import (AuthUser, AuthUserSerializer, MyTokenRefreshSerializer,
                           Order, OrderSerializer, OrderGetSerializer, OrderStatus, OrderStatusSerializer,
@@ -122,28 +123,42 @@ class OrderViewSet(viewsets.ModelViewSet):
         return OrderGetSerializer
 
 
-class SetRobot(generics.CreateAPIView):
+class SetRobot(generics.GenericAPIView):
     """
     Set robot to order
     if robot is null - set random
     """
     # permission_classes = [permissions.IsAdminUser]
     serializer_class = SetRobotSerializer
-    def post(self, request, format=None):
+    
+    def post(self, request, *args, **kwargs):
         """
         Return a list of all users.
         """
+        print(request.data)
         try:
-            order = Order.objects.get(pk=request.order_id)
+            order = Order.objects.get(pk=request.data['order_id'])
         except Exception as e:
             print(e.args)
             return Response(status=status.HTTP_404_NOT_FOUND)
-        robot = request.order_id
+        robot = None
+        if 'robot_id' in request.data:
+            robot = request.data['robot_id']
+
         if robot:
             try:
-                robot = Robot.objects.get(pk=request.order_id)
+                robot = Robot.objects.get(pk=request.data['order_id'])
                 if robot.status.id == 1 or robot.status.id == 2 and robot.charge > 10:
-                    order.robot = robot
+                    
+                    product = order.product
+                    target = product.location.area.id
+                    way = bfs(robot.area.id, target)
+                    b = bfs(target, 5)
+                    way.extend(b)
+                    c = bfs(5, 13)
+                    way.extend(c)
+                    print(way)
+                    area = robot.area.id
                 else:
                     # data={"error": "This robot unavailible"}
                     return Response(status=status.status.HTTP_400_BAD_REQUEST)
@@ -154,7 +169,23 @@ class SetRobot(generics.CreateAPIView):
             try:
                 robots = list(Robot.objects.filter(status__id__in=[1, 2], charge__gt=10))
                 robot  = choice(robots)
+                product = order.product
+                target = product.location.area.id
+                way = bfs(robot.area.id, target)
+                b = bfs(target, 5)
+                way.extend(b)
+                c = bfs(5, 13)
+                way.extend(c)
+                print(way)
             except:
                 # data={"error": "All robots unavailible"}, 
-                return Response(status=status.status.HTTP_400_BAD_REQUEST)
-        return Response(data=SetRobotSerializer(data={"robot_id": robot.id, "order_id": order.id}).data, status=status.HTTP_200_OK)
+                return SetRobotSerializer(data={"robot_id": robot.id, "order_id": order.id})
+        serializer = SetRobotSerializer(data={"robot_id": robot.id, "order_id": order.id})
+        try:
+            serializer.is_valid(raise_exception=True)
+        except TokenError as e:
+            return Response(status=status.status.HTTP_400_BAD_REQUEST)
+        
+        order.robot = robot
+        order.save()
+        return Response(serializer.validated_data, status=status.HTTP_200_OK)
