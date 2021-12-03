@@ -10,7 +10,7 @@ from drf_spectacular.utils import extend_schema
 
 
 from .serializers import (AuthUser, AuthUserSerializer, MyTokenRefreshSerializer,
-                          Order, OrderSerializer, OrderStatus, OrderStatusSerializer,
+                          Order, OrderSerializer, OrderGetSerializer, OrderStatus, OrderStatusSerializer,
                           SetRobotSerializer)
 
 from robots.models import Robot
@@ -115,8 +115,11 @@ class OrderStatusViewSet(viewsets.ModelViewSet):
 
 class OrderViewSet(viewsets.ModelViewSet):
     # permission_classes = [IsAdminOrReadOnly]
-    serializer_class = OrderSerializer
     queryset = Order.objects.all()
+    def get_serializer_class(self):        
+        if self.action in ["create", "update", "partial_update", "destroy"]:
+            return OrderSerializer
+        return OrderGetSerializer
 
 
 class SetRobot(generics.CreateAPIView):

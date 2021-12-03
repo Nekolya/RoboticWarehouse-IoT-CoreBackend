@@ -81,6 +81,8 @@ class Order(models.Model):
         'OrderStatus', related_name='orders', on_delete=models.CASCADE)
     robot = models.ForeignKey(
         Robot, related_name='orders', on_delete=models.CASCADE, null=True, default=None)
+    product = models.ForeignKey(
+        Product, related_name='orders', on_delete=models.CASCADE)
 
     class Meta:
         """Meta definition for Order."""
@@ -88,10 +90,3 @@ class Order(models.Model):
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
 
-
-class OrderProduct(models.Model):
-    product = models.ForeignKey(
-        Product, related_name='orders', on_delete=models.CASCADE)
-    order = models.ForeignKey(
-        Order, related_name='products', on_delete=models.CASCADE)
-    amount = models.PositiveIntegerField()

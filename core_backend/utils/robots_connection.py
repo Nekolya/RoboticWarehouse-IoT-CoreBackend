@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import asyncio
 import json 
+from os import environ
 
 
 class RobotsConnection():
@@ -29,12 +30,12 @@ class RobotsConnection():
             print("Connected with result code "+ str(rc))
             client.subscribe("robots/data")
 
-        self.client.connect_async("localhost",1883,60)
+        print(environ.get('MQTT_HOST'), environ.get('MQTT_PORT'), environ.get('MQTT_KEEP_ALIVE'))
+        self.client.connect_async(environ.get('MQTT_HOST'), int(environ.get('MQTT_PORT')), int(environ.get('MQTT_KEEP_ALIVE')))
         self.client.on_connect = on_connect
         self.client.on_message = on_message
         await self.client.loop_start()
 
     async def main(self):
-        
         input_coroutines = [self.connect(), self.connect()]
         res = await asyncio.gather(*input_coroutines, return_exceptions=True)

@@ -19,6 +19,5 @@ class Product(models.Model):
                                  related_name='products',
                                  on_delete=models.CASCADE)
 
-    amount = models.PositiveIntegerField()
     location = models.ForeignKey(
         Location, related_name='products', on_delete=models.CASCADE)

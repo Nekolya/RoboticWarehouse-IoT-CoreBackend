@@ -2,7 +2,11 @@ from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework import exceptions
 
+from products.models import Product
+from products.serializers import ProductGetSerializer, ProductSerializer
+
 from .models import AuthUser, OrderStatus, Order
+from robots.serializers import RobotSerializer
 import re
 
 
@@ -41,20 +45,32 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
-        
+    # def create(self, validated_data):
+    #     order = Order.objects.create(**validated_data)
+    #     products = validated_data.pop('products')
+    #     for i in products:
+            
+    
     def to_internal_value(self, data):
         # check for "finish_date": "" and convert to None
         # This must be done before .validate()
         try:
-            if data['ordering_date'] == '':
+            if 'ordering_date' in data and data['ordering_date'] == '':
                 data['ordering_date'] = None
             if 'receiving_date' in data and data['receiving_date'] == '':
                 data['finish_time'] = None
-            if not data['language']:
-                data['language'] = None
         except Exception as e:
             raise ValidationError('Bad data')
-        return super(QuestionnairePostSerializer, self).to_internal_value(data)
+        return super(OrderSerializer, self).to_internal_value(data)
+    
+class OrderGetSerializer(serializers.ModelSerializer):
+    robot=RobotSerializer()
+    status=OrderStatusSerializer()
+    user=AuthUserSerializer()
+    product = ProductGetSerializer()
+    class Meta:
+        model = Order
+        fields = '__all__'
 
 class SetRobotSerializer(serializers.Serializer):
     robot_id = serializers.UUIDField(format='int', required=False)

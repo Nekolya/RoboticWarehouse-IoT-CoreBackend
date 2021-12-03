@@ -18,7 +18,7 @@ def csv_reader():
                 continue
             seed(1)
             Product.objects.get_or_create(id=counter, category=Category.objects.get(
-                pk=line[0]), name=line[1], cost=line[2], amount=randint(1, 20), location=Location.objects.get(pk=line[0]))
+                pk=line[0]), name=line[1], cost=line[2], location=Location.objects.get(pk=line[0]))
             # print("line", line[0], line[1], line[2])
             counter += 1
             # d.save()
