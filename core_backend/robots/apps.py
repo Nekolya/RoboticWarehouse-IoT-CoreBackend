@@ -29,5 +29,17 @@ class RobotsConfig(AppConfig):
                 "status": r,
                 "area": Area.objects.get(pk=13)
                 })
+            Robot.objects.get_or_create(id=3, defaults={
+                "model": "ROBO-835432481",
+                "charge": 100,
+                "status": r,
+                "area": Area.objects.get(pk=13)
+                })
+            Robot.objects.get_or_create(id=4, defaults={
+                "model": "RB-45433",
+                "charge": 100,
+                "status": r,
+                "area": Area.objects.get(pk=13)
+                })
         except Exception as e:
                 print(e.args)

@@ -1,3 +1,5 @@
+import json
+
 from os import stat
 from rest_framework import viewsets, mixins, status, generics
 from rest_framework.views import APIView
@@ -8,13 +10,14 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema
 from utils.find_way import bfs
+from utils.robot_mqtt_post import publish
 from zones.models import Area
 
 from .serializers import (AuthUser, AuthUserSerializer, MyTokenRefreshSerializer,
                           Order, OrderSerializer, OrderGetSerializer, OrderStatus, OrderStatusSerializer,
                           SetRobotSerializer)
 
-from robots.models import Robot
+from robots.models import Robot, RobotStatus
 from random import choice
 
 # Create your views here.
@@ -116,7 +119,7 @@ class OrderStatusViewSet(viewsets.ModelViewSet):
 
 class OrderViewSet(viewsets.ModelViewSet):
     # permission_classes = [IsAdminOrReadOnly]
-    queryset = Order.objects.all()
+    queryset = Order.objects.all().order_by("id")
     def get_serializer_class(self):        
         if self.action in ["create", "update", "partial_update", "destroy"]:
             return OrderSerializer
@@ -167,7 +170,8 @@ class SetRobot(generics.GenericAPIView):
                 return Response(status=status.HTTP_404_NOT_FOUND)
         else:
             try:
-                robots = list(Robot.objects.filter(status__id__in=[1, 2], charge__gt=10))
+                robots = list(Robot.objects.filter(status__id=1))
+                print(robots)
                 robot  = choice(robots)
                 product = order.product
                 target = product.location.area.id
@@ -185,7 +189,14 @@ class SetRobot(generics.GenericAPIView):
             serializer.is_valid(raise_exception=True)
         except TokenError as e:
             return Response(status=status.status.HTTP_400_BAD_REQUEST)
-        
         order.robot = robot
         order.save()
+        robot.status = RobotStatus.objects.get(pk=5)
+        robot.save()
+        publish("robots/tasks", json.dumps({
+            "id":robot.id, 
+            "way": way,
+            "order": order.id
+        }))
+        
         return Response(serializer.validated_data, status=status.HTTP_200_OK)

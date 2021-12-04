@@ -11,7 +11,7 @@ def publish(topic, message):
         pass
     client.on_publish = on_publish
     client.connect('localhost', 1883, 60)
-    client.publish("robots/tasks", "Hello robots!")
+    client.publish(topic, message)
     print("published")
     
     
