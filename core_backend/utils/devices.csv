@@ -1,0 +1,151 @@
+category id,device name,cost
+1,"Процессор AMD FX-4300 OEM [AM3+, 4 x 3800 МГц, L2 - 4 МБ, L3 - 4 МБ, 2хDDR3-1866 МГц, TDP 95 Вт]",3750
+1,"Процессор AMD Ryzen 5 3600, OEM",15590
+1,"Процессор AMD Athlon 3000G, OEM",5600
+1,"Процессор AMD Ryzen 5 2600, OEM",12590
+1,"Процессор INTEL Core i3 10100F, OEM",6700
+1,"Процессор INTEL Core i5 10400F, OEM",13890
+1,"Процессор AMD Ryzen 7 3700X, OEM",24740
+1,"Процессор AMD A8 9600, OEM",6400
+1,"Процессор Intel Pentium Dual-Core G4400, OEM",7490
+1,"Процессор Intel Core i5 9400F, OEM",11990
+2,"Материнская плата GIGABYTE H310M S2 2.0 [LGA 1151-v2, Intel H310, 2xDDR4-2666 МГц, 1xPCI-Ex16, аудио 7.1, Micro-ATX]",3299
+2,Материнская плата ASROCK A320M-DVS R4.0,3570
+2,Материнская плата ASROCK B450M PRO4,5550
+2,Материнская плата GIGABYTE H410M S2 V2,5300
+2,Материнская плата GIGABYTE B450 AORUS ELITE V2,7140
+2,Материнская плата ASROCK B460M Pro4,7580
+2,Материнская плата ASROCK B450 PRO4 R2.0,6540
+2,Материнская плата ASUS PRIME A320M-K,4620
+2,Материнская плата ASUS PRIME H310M-R R2.0,3770
+2,Материнская плата GIGABYTE B550 AORUS ELITE V2,10920
+3,"Видеокарта PALIT NVIDIA GeForce RTX 3060, PA-RTX3060 DUAL 12G",71500
+3,"Видеокарта PALIT NVIDIA GeForce RTX 3060, RTX3060 DUAL OC 12G",71990
+3,"Видеокарта PALIT NVIDIA GeForce GTX 1050TI, PA-GTX1050Ti StormX 4G",22990
+3,"Видеокарта PALIT NVIDIA GeForce RTX 3070TI, PA-RTX3070TI GAMINGPRO 8G",135700
+3,"Видеокарта PALIT NVIDIA GeForce RTX 2060, PA-RTX2060 DUAL 6G no LED",66990
+3,"Видеокарта MSI NVIDIA GeForce GT 1030, GT 1030 AERO ITX 2GD4 OC",7290
+3,"Видеокарта PALIT NVIDIA GeForce GTX 1660, PA-GTX1660 DUAL OC 6G",46990
+3,"Видеокарта MSI NVIDIA GeForce GT 710, GT 710 1GD3H LP",3500
+3,"Видеокарта GIGABYTE NVIDIA GeForce GTX 1660TI, GV-N166TOC-6GD",61990
+3,"Видеокарта PALIT NVIDIA GeForce GTX 1660SUPER, PA-GTX1660SUPER STORMX 6G",61690
+4,Модуль памяти CRUCIAL CT8G4DFRA266 DDR4 - 8ГБ,2790
+4,Модуль памяти AMD Radeon R7 Performance Series R748G2606U2S-UO DDR4 - 8ГБ,2590
+4,Модуль памяти CORSAIR Vengeance LPX CMK16GX4M2B3200C16 DDR4 - 2x 8ГБ,6990
+4,Модуль памяти Patriot Signature PSD48G266681 DDR4 - 8ГБ,2690
+4,Модуль памяти Kingston HyperX FURY Black HX426C16FB3K2/16 DDR4 - 2x 8ГБ,7490
+4,Модуль памяти AMD Radeon R7 Performance Series R744G2606U1S-UO DDR4 - 4ГБ,1490
+4,Модуль памяти Patriot PSD38G16002 DDR3 - 8ГБ,2690
+4,Модуль памяти Crucial CT4G4DFS824A DDR4 - 4ГБ,1590
+4,Модуль памяти Crucial CT8G4SFS824A DDR4 - 8ГБ,2790
+4,Модуль памяти Kingmax KM-LD4-2666-8GS DDR4 - 8ГБ,2890
+5,"Корпус ATX Zalman i3, черный",3750
+5,"Корпус mATX Aerocool Cylon Mini, черный",2590
+5,"Корпус ATX ACCORD SKY-01, черный",1680
+5,"Корпус mATX LINKWORLD VC-13M35, черный",1510
+5,"Корпус ATX Zalman S3, черный",2590
+5,"Корпус ATX Aerocool Cylon, черный",2670
+5,"Корпус ATX Zalman N5 MF, черный",3460
+5,"Корпус ATX Aerocool Aero One Frost-G-WT-v1, белый",4670
+5,"Корпус ATX Aerocool Shard A-BK-v, черный",2270
+5,"Корпус ATX Zalman S2, черный",3010
+7,Вентилятор AEROCOOL Motion 12 plus,310
+7,Вентилятор DEEPCOOL XFAN 120,330
+7,Вентилятор DeepCool WIND BLADE 120,350
+7,Вентилятор DEEPCOOL UF120,910
+7,Вентилятор Aerocool Rev Blue,490
+7,Устройство охлаждения(кулер) DeepCool GAMMAXX 300 FURY,1290
+7,Устройство охлаждения(кулер) DeepCool GAMMAXX 400 BLUE BASIC,1660
+7,Устройство охлаждения(кулер) DeepCool ICE EDGE MINI FS V2.0,630
+7,Устройство охлаждения(кулер) AEROCOOL Verkho 2,800
+7,Устройство охлаждения(кулер) Aerocool Cylon 4,2560
+6,"Блок питания Aerocool VX PLUS 500W, 500Вт, черный",1950
+6,"Блок питания Aerocool VX PLUS 600W, 600Вт, черный",2280
+6,"Блок питания Aerocool VX PLUS, 350Вт, черный",1340
+6,"Блок питания Aerocool KCAS PLUS 700, 700Вт, черный",4160
+6,"Блок питания Aerocool VX PLUS 650W, 650Вт, черный",2660
+6,"Блок питания Aerocool VX PLUS 450W, 450Вт, черный",1830
+6,"Блок питания Aerocool VX PLUS 750W, 750Вт, черный",3140
+6,"Блок питания Accord ACC-400W-12, 400Вт",1180
+6,"Блок питания Aerocool KCAS PLUS 600, 600Вт, черный",3740
+6,"Блок питания Accord ACC-450W-12, 450Вт",1500
+8,SSD накопитель SAMSUNG 870 EVO MZ-77E500BW 500ГБ,6540
+8,SSD накопитель KINGSTON A400 SA400S37/240G 240ГБ,2740
+8,SSD накопитель CRUCIAL BX500 CT240BX500SSD1 240ГБ,2790
+8,SSD накопитель A-DATA Ultimate SU650 ASU650SS-120GT-R 120ГБ,1690
+8,SSD накопитель WD Blue WDS500G2B0A 500ГБ,4990
+8,SSD накопитель WD Green WDS240G2G0A 240ГБ,3090
+8,SSD накопитель A-DATA Ultimate SU650 ASU650SS-240GT-R 240ГБ,2590
+8,SSD накопитель CRUCIAL BX500 CT480BX500SSD1 480ГБ,3990
+8,SSD накопитель SAMSUNG 870 EVO MZ-77E250BW 250ГБ,5000
+8,SSD накопитель WD Blue WDS250G2B0A 250ГБ,4390
+9,"Жесткий диск WD Caviar Blue WD10EZEX, 1ТБ, HDD, SATA III, 3.5""",2970
+9,"Жесткий диск SEAGATE Barracuda ST1000DM010, 1ТБ, HDD, SATA III, 3.5""",2890
+9,"Жесткий диск TOSHIBA P300 HDWD110UZSVA, 1ТБ, HDD, SATA III, 3.5""",2710
+9,"Жесткий диск SEAGATE Barracuda ST2000DM008, 2ТБ, HDD, SATA III, 3.5""",4130
+9,"Жесткий диск WD Blue WD10EZRZ, 1ТБ, HDD, SATA III, 3.5""",3090
+9,"Жесткий диск SEAGATE Ironwolf ST4000VN008, 4ТБ, HDD, SATA III, 3.5""",8590
+9,"Жесткий диск WD Red WD10EFRX, 1ТБ, HDD, SATA III, 3.5""",4990
+9,"Жесткий диск WD Black WD1003FZEX, 1ТБ, HDD, SATA III, 3.5""",6390
+9,"Жесткий диск WD Purple WD20PURZ, 2ТБ, HDD, SATA III, 3.5""",5970
+9,"Жесткий диск WD Purple WD40PURZ, 4ТБ, HDD, SATA III, 3.5""",10490
+10,Звуковая карта PCI-E ASUS Xonar SE,3490
+10,Звуковая карта PCI-E CREATIVE Audigy RX,5390
+10,Звуковая карта PCI-E CREATIVE BlasterX AE-5 Plus,12050
+10,Звуковая карта PCI 8738,660
+10,Звуковая карта PCI-E CREATIVE Sound Blaster Z SE,7260
+10,Звуковая карта PCI-E 8738,1240
+10,Звуковая карта PCI-E CREATIVE Audigy FX,3730
+10,Звуковая карта PCI-E ASUS Xonar AE,4090
+10,Звуковая карта PCI-E ASUS Strix Soar,6790
+10,Звуковая карта PCI-E CREATIVE Sound Blaster AE-9,32530
+11,Сетевая карта Intel Original X520-SR2 (E10G42BFSRBLK 927247),41880
+11,Сетевая карта Intel Original I210T1BLK 921434,5580
+11,Сетевая карта Dell 555-BCKL Intel X710 10G 4P DA/SFP+ Ethernet Daughter,43710
+11,Сетевая карта Dell Intel X520 10Gb DA/SFP+ 2P I350 1Gb Network Daughter (540-BBHJ),33430
+11,Сетевая карта Dell 540-BBVC IX550 Quadr Port 10GbE Base-T rNDC Daughter for 14G (64PJ8),35930
+11,Сетевая карта Intel Original X550T2BLK 2xRG45 10Gb/s PCI-E 3.0x8 Low Profile (X550T2BLK 940136),27710
+11,Сетевая карта Intel Original X550T1BLK 1xRG45 10Gb/s PCI-E 3.0x8 Low Profile (X550T1BLK 940125),26560
+11,Сетевая карта Intel Original X520-DA2 (E10G42BTDABLK 927249),27030
+11,Сетевая карта Eaton NETWORK-M2,28340
+11,Сетевая карта Dell 555-BDYF QLogic FastLinQ QL41162HMRJ-DE 2x10Gbe+2x1GbE rNDC (0D1WT),29290
+12,"Гарнитура игровая SVEN AP-U980MV, черный / синий",2099
+12,"Гарнитура A4TECH Bloody G520S, серый",1680
+12,"Гарнитура игровая Oklick HS-L500G TOXIC, черный",1270
+12,"Гарнитура игровая HYPERX Cloud Stinger Core, черный / синий",2490
+12,"Гарнитура игровая A4TECH Bloody J527, серый",2460
+12,"Гарнитура игровая A4TECH Bloody G600i, черный",3410
+12,"Гарнитура игровая SUNWIND SW-HS700G, черный",1490
+12,"Гарнитура игровая HYPERX Cloud Stinger Core for PC, черный",2599
+12,"Гарнитура игровая Oklick HS-L400G ZEUS, черный / синий",1100
+12,"Гарнитура игровая HYPERX Cloud Stinger, черный",3790
+13,"Мышь LOGITECH G102 LIGHTSYNC, проводная, USB, черный",2200
+13,"Мышь RAZER DeathAdder Essential, игровая, оптическая, проводная, USB, черный ",1990
+13,"Мышь SUNWIND SW-M715GW, беспроводная, USB, черный",690
+13,"Мышь LOGITECH M185, беспроводная, USB, серый",1099
+13,"Мышь A4TECH Bloody V8, проводная, USB, черный",1490
+13,"Клавиатура LOGITECH G413 Carbon, черный",6490
+13,"Клавиатура HYPERX Alloy FPS RGB, черный",6990
+13,"Клавиатура STEELSERIES Apex Pro Ru, USB, c подставкой для запястий, черный [64626]",18990
+13,"Клавиатура LOGITECH G513 Tactile (GX Brown switches), черный",11510
+13,"Клавиатура ASUS XA05 ROG STRIX SCOPE RX/RD/RU, черный",9240
+14,"Компьютер IRU Home 615, черный",36590
+14,"Компьютер IRU Home 525, черный",66990
+14,"Компьютер IRU Game 525, черный",139990
+14,"Компьютер Acer Aspire TC-1660, черный",49580
+14,"Компьютер ACER Aspire XC-895, черный",31590
+14,"Компьютер HP Slimline S01-aF0016ur, черный",22490
+14,"Компьютер HP M01-F1030ur, черный",54990
+14,"Компьютер IRU Game 719, черный",330810
+14,"Компьютер LENOVO V50s-07IMB, черный",72570
+14,"Компьютер LENOVO Legion T5 26IOB6, черный",207690
+15,"Ноутбук LENOVO IP Gaming 3 15ARH05, 82EY009HRK, черный",59990
+15,"Ноутбук LENOVO IdeaPad S145-15API, 81UT00FDRU, серый",41890
+15,"Ноутбук HP 15s-eq2022ur, 3B2U6EA, серебристый",45990
+15,"Ноутбук ASUS M515DA-BQ058, 90NB0T41-M06550, серый",36990
+15,"Ультрабук HONOR MagicBook 15, 53011SXH, серебристый",65990
+15,"Ноутбук MSI GS66 Stealth 11UG-253RU, 9S7-16V412-253, черный",229990
+15,"Ноутбук MSI GF63 Thin 9SCSR-1028XRU, 9S7-16R412-1028, черный",75990
+15,"Ноутбук MSI Sword 15 A11UE-212XRU, 9S7-158113-212, белый",98080
+15,"Ноутбук APPLE MacBook Air M1, MGND3RU/A, золотой",89990
+15,"Ноутбук APPLE MacBook Pro, MXK72RU/A, серебристый",100990
